@@ -1,0 +1,21 @@
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        
+        #biggesy sq is at first or last
+        #we can use 2 pointer algo.
+        #we find largest number and we keep putting it in the res from the last
+        n=len(nums)
+        res=[0]*n
+        L,R=0,n-1
+        #loop in array backwards
+        for i in range(n-1,-1,-1):
+            if abs(nums[L])<=abs(nums[R]):
+                #storing values so than we can put them in the array when required by squaring them.
+                val=nums[R]
+                R-=1
+            else:
+                val=nums[L]
+                L+=1
+            res[i]=val**2
+
+        return res            
