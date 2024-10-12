@@ -1,0 +1,14 @@
+
+
+class Solution:
+    def addDigits(self, num: int) -> int:
+        while num >= 10:  # Keep going until num becomes a single digit
+            temp = 0
+            while num > 0:
+                rem = num % 10  # Get the last digit
+                temp += rem  # Add the last digit to temp
+                num //= 10  # Remove the last digit from num
+            num = temp  # Update num to be the sum of digits
+        return num  # Return the final single digit
+
+        #This means that for any number, the remainder when it is divided by 9 (i.e., num % 9) is the same as the remainder when the sum of its digits is divided by 9. if num==0:return 0 else: return 1+(num-1)%9
